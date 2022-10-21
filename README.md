@@ -1,3 +1,16 @@
+# MiDaS Server
+Fork for the MiDaS repository to add a simple flask server.
+
+Follow setup instructions from MiDaS, then run using:
+
+`python server.py`
+
+or start with docker
+
+`docker run -it -d midas-server`
+
+---
+
 ## Towards Robust Monocular Depth Estimation: Mixing Datasets for Zero-shot Cross-dataset Transfer
 
 This repository contains code to compute depth from a single image. It accompanies our [paper](https://arxiv.org/abs/1907.01341v3):
