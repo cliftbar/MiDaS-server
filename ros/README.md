@@ -18,14 +18,14 @@ MiDaS is a neural network to compute depth from a single image.
 
 * install ROS Melodic for Ubuntu 17.10 / 18.04:
 ```bash
-wget https://raw.githubusercontent.com/intel-isl/MiDaS/master/ros/additions/install_ros_melodic_ubuntu_17_18.sh
+wget https://raw.githubusercontent.com/isl-org/MiDaS/master/ros/additions/install_ros_melodic_ubuntu_17_18.sh
 ./install_ros_melodic_ubuntu_17_18.sh
 ```
 
 or Noetic for Ubuntu 20.04: 
 
 ```bash
-wget https://raw.githubusercontent.com/intel-isl/MiDaS/master/ros/additions/install_ros_noetic_ubuntu_20.sh
+wget https://raw.githubusercontent.com/isl-org/MiDaS/master/ros/additions/install_ros_noetic_ubuntu_20.sh
 ./install_ros_noetic_ubuntu_20.sh
 ```
 
@@ -61,7 +61,7 @@ source ~/.bashrc
 cd ~/
 mkdir catkin_ws
 cd catkin_ws
-git clone https://github.com/intel-isl/MiDaS
+git clone https://github.com/isl-org/MiDaS
 mkdir src
 cp -r MiDaS/ros/* src
 
@@ -90,15 +90,15 @@ cp src/additions/do_catkin_make.sh ./do_catkin_make.sh
 
 ### Accuracy
 
-* Old small model - ResNet50 default-decoder 384x384
-* New small model - EfficientNet-Lite3 small-decoder 256x256
+* MiDaS v2 small - ResNet50 default-decoder 384x384
+* MiDaS v2.1 small - EfficientNet-Lite3 small-decoder 256x256
 
 **Zero-shot error** (the lower - the better):
 
 | Model |  DIW WHDR | Eth3d AbsRel | Sintel AbsRel | Kitti δ>1.25 | NyuDepthV2 δ>1.25 | TUM δ>1.25 |
 |---|---|---|---|---|---|---|
-| Old small model 384x384 | **0.1248** | 0.1550 | **0.3300** | **21.81** | 15.73 | 17.00 |
-| New small model 256x256 | 0.1344 | **0.1344** | 0.3370 | 29.27 | **13.43** | **14.53** |
+| MiDaS v2 small 384x384 | **0.1248** | 0.1550 | **0.3300** | **21.81** | 15.73 | 17.00 |
+| MiDaS v2.1 small 256x256 | 0.1344 | **0.1344** | 0.3370 | 29.27 | **13.43** | **14.53** |
 | Relative improvement, % | -8 % | **+13 %** | -2 % | -34 % | **+15 %** | **+15 %** |
 
 None of Train/Valid/Test subsets of datasets (DIW, Eth3d, Sintel, Kitti, NyuDepthV2, TUM) were not involved in Training or Fine Tuning.
@@ -109,8 +109,8 @@ Inference speed excluding pre and post processing, batch=1, **Frames Per Second*
 
 | Model | Jetson Nano, FPS | RTX 2080Ti, FPS |
 |---|---|---|
-| Old small model 384x384 | 1.6 | 117 |
-| New small model 256x256 | 8.1 | 232 |
+| MiDaS v2 small 384x384 | 1.6 | 117 |
+| MiDaS v2.1 small 256x256 | 8.1 | 232 |
 | SpeedUp, X times | **5x** | **2x** |
 
 ### Citation
